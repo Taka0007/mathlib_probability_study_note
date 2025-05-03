@@ -28,4 +28,4 @@ protected def comap (f : α → β) (m : MeasurableSpace β) : MeasurableSpace �
     let ⟨s', hs'⟩ := Classical.axiom_of_choice hs
     ⟨⋃ i, s' i, m.measurableSet_iUnion _ fun i => (hs' i).left, by simp [hs']⟩
 ```
-可測空間mの可測関数のfによる引き戻しです. MeasurableSpace.comap mは可測集合になります. `measurableSet_iUnion`について証明の途中で, 等式$f^{-1} \bigcup_{\lambda \in \Lambda} X = \bigcup_{\lambda \in \Lambda} f^{-1} X$が使われますが, ここで選択公理が暗に使われています.
+可測空間mの可測関数のfによる引き戻しです. MeasurableSpace.comap mは可測集合になります. `measurableSet_iUnion`について証明の途中で, 等式 $f^{-1} \bigcup_{\lambda \in \Lambda} X = \bigcup_{\lambda \in \Lambda} f^{-1} X$ が使われますが, ここで選択公理が暗に使われています.
