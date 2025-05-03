@@ -6,7 +6,7 @@ MeasureTheory.MeasureSpace.Basic
 コード元
 [MeasureTheory.MeasurableSpace.Basic](https://leanprover-community.github.io/mathlib4_docs/Mathlib/MeasureTheory/MeasurableSpace/Basic.html)
 
-``` lean4
+``` lean
 /-- The forward image of a measurable space under a function. `map f m` contains the sets
   `s : Set β` whose preimage under `f` is measurable. -/
 protected def map (f : α → β) (m : MeasurableSpace α) : MeasurableSpace β where
@@ -17,7 +17,7 @@ protected def map (f : α → β) (m : MeasurableSpace α) : MeasurableSpace β 
 ```
 可測空間mの可測関数のfによる押し出しです. MeasurableSpace.map mは可測集合になります.
 
-``` lean4
+``` lean
 /-- The reverse image of a measurable space under a function. `comap f m` contains the sets
   `s : Set α` such that `s` is the `f`-preimage of a measurable set in `β`. -/
 protected def comap (f : α → β) (m : MeasurableSpace β) : MeasurableSpace α where
