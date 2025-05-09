@@ -15,7 +15,7 @@ protected def map (f : α → β) (m : MeasurableSpace α) : MeasurableSpace β 
   measurableSet_compl _ hs := m.measurableSet_compl _ hs
   measurableSet_iUnion f hf := by simpa only [preimage_iUnion] using m.measurableSet_iUnion _ hf
 ```
-可測空間mの可測関数のfによる押し出しです. MeasurableSpace.map mは可測集合になります.
+可測空間 $m$ の可測関数の $f$ による押し出しです. `MeasurableSpace.map m` は可測集合になります.
 
 ``` lean
 /-- The reverse image of a measurable space under a function. `comap f m` contains the sets
