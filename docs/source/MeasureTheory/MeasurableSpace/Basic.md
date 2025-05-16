@@ -6,7 +6,7 @@ MeasureTheory.MeasureSpace.Basic
 コード元
 [MeasureTheory.MeasurableSpace.Basic](https://leanprover-community.github.io/mathlib4_docs/Mathlib/MeasureTheory/MeasurableSpace/Basic.html)
 
-``` lean4
+``` lean
 /-- The forward image of a measurable space under a function. `map f m` contains the sets
   `s : Set β` whose preimage under `f` is measurable. -/
 protected def map (f : α → β) (m : MeasurableSpace α) : MeasurableSpace β where
@@ -15,9 +15,9 @@ protected def map (f : α → β) (m : MeasurableSpace α) : MeasurableSpace β 
   measurableSet_compl _ hs := m.measurableSet_compl _ hs
   measurableSet_iUnion f hf := by simpa only [preimage_iUnion] using m.measurableSet_iUnion _ hf
 ```
-可測空間mの可測関数のfによる押し出しです. MeasurableSpace.map mは可測集合になります.
+可測空間 $m$ の可測関数の $f$ による押し出しです. `MeasurableSpace.map m` は可測集合になります.
 
-``` lean4
+``` lean
 /-- The reverse image of a measurable space under a function. `comap f m` contains the sets
   `s : Set α` such that `s` is the `f`-preimage of a measurable set in `β`. -/
 protected def comap (f : α → β) (m : MeasurableSpace β) : MeasurableSpace α where
@@ -28,4 +28,4 @@ protected def comap (f : α → β) (m : MeasurableSpace β) : MeasurableSpace �
     let ⟨s', hs'⟩ := Classical.axiom_of_choice hs
     ⟨⋃ i, s' i, m.measurableSet_iUnion _ fun i => (hs' i).left, by simp [hs']⟩
 ```
-可測空間mの可測関数のfによる引き戻しです. MeasurableSpace.comap mは可測集合になります. `measurableSet_iUnion`について証明の途中で, 等式$f^{-1} \bigcup_{\lambda \in \Lambda} X = \bigcup_{\lambda \in \Lambda} f^{-1} X$が使われますが, ここで選択公理が暗に使われています.
+可測空間mの可測関数のfによる引き戻しです. MeasurableSpace.comap mは可測集合になります. `measurableSet_iUnion`について証明の途中で, 等式 $f^{-1} \bigcup_{\lambda \in \Lambda} X = \bigcup_{\lambda \in \Lambda} f^{-1} X$ が使われますが, ここで選択公理が暗に使われています.
