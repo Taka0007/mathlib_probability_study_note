@@ -29,7 +29,8 @@ def MeasurableSet [MeasurableSpace α] (s : Set α) : Prop :=
 /-- Notation for `MeasurableSet` with respect to a non-standard σ-algebra. -/
 scoped[MeasureTheory] notation "MeasurableSet[" m "]" => @MeasurableSet _ m
 ```
-これは可測空間の定義です. 可測性を持つ(`measurableSet_empty`, `measurableSet_compl`, `measurableSet_iUnion`)集合族(`MeasurableSet' : Set α → Prop`)である $\sigma$ -加法族が型クラスとして機能する構造体として定義されています.
+これは可測空間の定義です. <br>
+可測性を持つ(`measurableSet_empty`, `measurableSet_compl`, `measurableSet_iUnion`)集合族(`MeasurableSet' : Set α → Prop`)である $\sigma$ -加法族が型クラスとして機能する構造体として定義されています.
 
 ``` lean
 /-- A function `f` between measurable spaces is measurable if the preimage of every
@@ -38,7 +39,8 @@ scoped[MeasureTheory] notation "MeasurableSet[" m "]" => @MeasurableSet _ m
 def Measurable [MeasurableSpace α] [MeasurableSpace β] (f : α → β) : Prop :=
   ∀ ⦃t : Set β⦄, MeasurableSet t → MeasurableSet (f ⁻¹' t)
 ```
-これは可測関数の定義です. 可測関数は, その逆像が $\sigma$ -加法族であることを要求します. `Measurable`に関する簡単な主張を見ていきましょう. ちなみに, 逆像の定義は以下のように定義されます.
+これは可測関数の定義です. <br>
+可測関数は, その逆像が $\sigma$ -加法族であることを要求します. `Measurable`に関する簡単な主張を見ていきましょう. ちなみに, 逆像の定義は以下のように定義されます.
 ``` lean
 /-- The preimage of `s : Set β` by `f : α → β`, written `f ⁻¹' s`,
   is the set of `x : α` such that `f x ∈ s`. -/
@@ -64,4 +66,5 @@ protected theorem MeasurableSet.const (p : Prop) : MeasurableSet { _a : α | p }
 theorem measurable_const {_ : MeasurableSpace α} {_ : MeasurableSpace β} {a : α} :
     Measurable fun _ : β => a := fun s _ => .const (a ∈ s)
 ```
-`MeasurableSet.const`について`{ _a : α | (p : Prop) }`は`p`が真であるときにunivとなり, 偽であるときにemptyとなるのでどちらも $\sigma$ -加法族です. `measurable_const`は`MeasurableSet.const`にPropである`a ∈ s`を適用することでBoolから任意の型に拡張した形で定数関数が可測であることを示しています.
+`MeasurableSet.const`について`{ _a : α | (p : Prop) }`は`p`が真であるときにunivとなり, 偽であるときにemptyとなるのでどちらも $\sigma$ -加法族です. <br>
+`measurable_const`は`MeasurableSet.const`にPropである`a ∈ s`を適用することでBoolから任意の型に拡張した形で定数関数が可測であることを示しています.
